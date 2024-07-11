@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kanban Deal Flow</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Kanban</h1>
+        <button class="add-column-btn" onclick="addColumn()">+ Add Column</button>
+    </header>
+    <div class="kanban-wrapper">
+    <div class="kanban-board" id="kanbanBoard">
+        <div class="kanban-column">
+            <div class="column-header">
+                <h2 contenteditable="true">Apprentice</h2>
+                <button class="delete-column-btn" onclick="deleteColumn(this)">🗑️</button>
+            </div>
+            <button class="add-card-btn" onclick="addCard(this)">+ Add Card</button>
+            <div class="kanban-items" id="new">
+                <div class="kanban-item" data-id="1" onclick="editCard(this)">
+                    <img src="https://ca.slack-edge.com/T01C93F2CA1-U05R7RB1U3T-3918fbf044c1-512" alt="A3">
+                    <h3>MC</h3>
+                    <button class="delete-btn" onclick="deleteCard(event, this)">🗑️</button>
+                </div>
+                <div class="kanban-item" data-id="2" onclick="editCard(this)">
+                    <img src="https://ca.slack-edge.com/T01C93F2CA1-U0691P3KZEK-be144c397c86-512" alt="Moon Shot">
+                    <h3>Clarence</h3>
+                    <button class="delete-btn" onclick="deleteCard(event, this)">🗑️</button>
+                </div>
+                <div class="kanban-item" data-id="3" onclick="editCard(this)">
+                    <img src="https://ca.slack-edge.com/T01C93F2CA1-U05SMPG311U-d048117edc3a-512" alt="Moon Shot">
+                    <h3>Mia</h3>
+                    <button class="delete-btn" onclick="deleteCard(event, this)">🗑️</button>
+                </div>
+            </div>
+        </div>
+        <div class="kanban-column">
+            <div class="column-header">
+                <h2 contenteditable="true">Manager</h2>
+                <button class="delete-column-btn" onclick="deleteColumn(this)">🗑️</button>
+            </div>
+            <button class="add-card-btn" onclick="addCard(this)">+ Add Card</button>
+            <div class="kanban-items" id="reviewing">
+                <div class="kanban-item" data-id="4" onclick="editCard(this)">
+                    <img src="https://ca.slack-edge.com/T01C93F2CA1-U04CUP4FY79-ee462848713d-512" alt="Zhou & Goel">
+                    <h3>Stéphane</h3>
+                    <button class="delete-btn" onclick="deleteCard(event, this)">🗑️</button>
+                </div>
+                <div class="kanban-item" data-id="5" onclick="editCard(this)">
+                    <img src="https://ca.slack-edge.com/T01C93F2CA1-U01D21F657A-a68257e1f6cc-512" alt="Waya">
+                    <h3>François</h3>
+                    <button class="delete-btn" onclick="deleteCard(event, this)">🗑️</button>
+                </div>
+                <div class="kanban-item" data-id="6" onclick="editCard(this)">
+                    <img src="https://ca.slack-edge.com/T01C93F2CA1-U01GSPBE96U-4025c9a91947-512" alt="Waya">
+                    <h3>Romain</h3>
+                    <button class="delete-btn" onclick="deleteCard(event, this)">🗑️</button>
+                </div>
+            </div>
+        </div>
+        <div class="kanban-column">
+            <div class="column-header">
+                <h2 contenteditable="true">Boss</h2>
+                <button class="delete-column-btn" onclick="deleteColumn(this)">🗑️</button>
+            </div>
+            <button class="add-card-btn" onclick="addCard(this)">+ Add Card</button>
+            <div class="kanban-items" id="first-meeting">
+                <div class="kanban-item" data-id="7" onclick="editCard(this)">
+                    <img src="https://ca.slack-edge.com/T01C93F2CA1-U01BXDQAET1-29db6b9b320c-512" alt="Trillium">
+                    <h3>Mike</h3>
+                    <button class="delete-btn" onclick="deleteCard(event, this)">🗑️</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <footer>
+        Made with ❤️ by Clarence Dion
+    </footer>
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Edit Card</h2>
+            <form id="editForm">
+                <input type="hidden" id="cardId">
+                <label for="cardTitle">Title</label>
+                <input type="text" id="cardTitle" required>
+                <label for="cardImage">Image URL</label>
+                <input type="text" id="cardImage" required>
+                <button type="submit">Save</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.14.0/Sortable.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
